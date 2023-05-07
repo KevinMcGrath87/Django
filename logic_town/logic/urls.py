@@ -13,4 +13,5 @@ urlpatterns =[
     path('json',views.json_response),
     path('form', views.form),
     path('counter',views.counter),
+    path('counter_display',views.counter_display),
 ]

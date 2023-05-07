@@ -40,3 +40,21 @@ def json_response(request,name):
 def form(request):
     info = request.POST 
     return(redirect(f'/blog/{info["name"]}'))
+
+
+# this is where I will write code for the counter part of the assighment.
+def counter(request):
+    if 'count' in request.session:
+        count = request.session['count']
+        count += 1
+        request.session['count']=count
+        return(redirect('/counter_display'))
+    else:
+        request.session['count'] = 1;
+        return(redirect('/counter_display'))
+
+def counter_display(request):
+    context = {
+        'count': request.session['count'],
+    }
+    return(render(request,'counter_display.html',context))
