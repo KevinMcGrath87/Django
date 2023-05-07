@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel = "stylesheet" href = "{%static 'style.css'%}">
+</head>
+<body>
+    <div>
+        <h1>THIS IS THE WAY TO DJANGO BABAE!!</h1>
+        <h1>{{Name}}</h1>
+
+
+        <form action = "/form" method = "POST">
+            {%csrf_token%}
+            <input type = 'text' name = 'name' placeholder="what yo name be boy?">
+            <input type = 'submit' value = "submit">
+        </form>
+    </div>
+</body>
+</html>
