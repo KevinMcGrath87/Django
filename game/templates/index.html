@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel ="stylesheet" href = "{%static 'style.css'%}">
+
+</head>
+<body>
+    <div class = "header">
+        <h1>
+            Welcome to the Great Number Game!
+        </h1>
+    </div>
+    <div class = paragraph>
+        <p>I am thinking of a number between 1 and 10. Taks a guess below!</p>
+    </div>
+
+    <div class = "form_box">
+        {%if flag == "equal"%}
+            <h1>you guessed correctly!</h1>
+        {% elif flag == "low" %}
+            <h1>the number you guessed is too low</h1>
+        {%elif flag == 'high'%}
+            <h1>the number you guessed is too high</h1>
+        {% endif %}
+        <form action = "guess" method = "post">
+            {%csrf_token%}
+            <select name = "guessed_number">
+                <option value = '1'>1</option>
+                <option value = '2'>2</option>
+                <option value = '3'>3</option>
+                <option value = '4'>4</option>
+                <option value = '5'>5</option>
+                <option value = '6'>6</option>
+                <option value = '7'>7</option>
+                <option value = '8'>8</option>
+                <option value = '9'>9</option>
+                <option value = '10'>10</option>
+        </select>
+        <input type = "submit">Submit</input>
+        </form>
+        <form action = "reset" method = "post">
+            {%csrf_token%}
+            <input type = "submit" value = "reset">
+        </form>
+    </div>
+    
+</body>
+</html>
